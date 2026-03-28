@@ -1,38 +1,41 @@
-# 📚 Aulas — Insper AI
+---
+hide:
+  - toc
+---
 
-Bem-vindo! Aqui estão organizados todos os materiais das aulas de Inteligência Artificial.
+# 📚 Insper AI — 2026.1
+
+Bem-vindo ao handout oficial do **Insper AI**. Somos uma entidade acadêmica voltada ao aprendizado prático de machine learning e deep learning — da teoria ao código, com foco em projetos reais.
+
+O material de referência do curso é o **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow** de Aurélien Géron. Não é obrigatório tê-lo, mas é altamente recomendado para quem quer se aprofundar além das aulas.
+
+Os projetos devem ser entregues em até **uma semana** após a proposição do exercício, via GitHub Classroom.
+
+!!! warning "Atenção ao prazo"
+    Entregas fora do prazo não serão aceitas sem justificativa prévia.
 
 ---
 
-## 📖 Aulas Disponíveis
+## Sobre o Insper AI
 
-### **Aula 1: Regressão Linear com California Housing**
+Somos uma entidade de extensão do Insper dedicada a formar estudantes com base sólida em inteligência artificial. Nosso foco é prático: cada aula combina teoria, código e projetos reais para que você saia com habilidades aplicáveis desde o primeiro semestre.
 
-Aprenda os fundamentos da regressão linear na prática.
-
-- 🔍 **Exploração dos Dados** — Carregamento, estatísticas e visualizações
-- ⚠️ **Outliers e Dados Suspeitos** — Identificação e impacto no modelo
-- 🤖 **Treinando o Modelo** — Divisão treino/teste e avaliação com R²
-- ✏️ **Atividades** — Exercícios para fixar os conceitos
-
-**Dataset**: California Housing (censo de 1990 da Califórnia)
-
-[→ Acessar Aula 1](aula-01/index.md){ .md-button }
+O curso cobre desde os fundamentos estatísticos até redes neurais profundas, passando por regressão, classificação, clusterização e muito mais. Ao longo do semestre você vai trabalhar com datasets reais, treinar modelos do zero e aprender a avaliá-los com rigor.
 
 ---
 
-## 🎯 Próximas Aulas
+## Responsáveis
 
-Em breve...
+| Monitor | E-mail |
+|---|---|
+| Thomas Kassabian | ThomasKassabian@gmail.com |
+| Vitinho | Vitinho@gmail.com |
+| Gabriel Aguair | gabrielaguair@gmail.com |
 
 ---
 
-## 📝 Estrutura do Curso
+## Links Úteis
 
-Este material acompanha o desenvolvimento do curso **Insper AI 2026.1**.
-
-Cada aula contém:
-- Explicações teóricas
-- Exemplos de código em Python
-- Visualizações dos dados
-- Exercícios práticos
+- 🗓️ **Plano de aula:** em breve
+- 🖥️ **Slides das aulas:** em breve
+- 🌐 **Plataforma Insper AI:** [insperai.sige.sh](https://insperai.sige.sh)
