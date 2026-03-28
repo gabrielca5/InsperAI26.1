@@ -28,16 +28,16 @@ $$
 
 No nosso exemplo de imóveis:
 
-| Símbolo | Nome | No exemplo |
-|---|---|---|
-| $x$ | variável de entrada | área do imóvel (m²) |
-| $\hat{y}$ | valor previsto | preço estimado (R$) |
-| $m$ | inclinação | quanto o preço sobe a cada m² a mais |
-| $b$ | intercepto | valor base quando área tende a zero |
+| Símbolo   | Nome                | No exemplo                           |
+| --------- | ------------------- | ------------------------------------ |
+| $x$       | variável de entrada | área do imóvel (m²)                  |
+| $\hat{y}$ | valor previsto      | preço estimado (R\$)                 |
+| $m$       | inclinação          | quanto o preço sobe a cada m² a mais |
+| $b$       | intercepto          | valor base quando área tende a zero  |
 
 ![Componentes da equação da reta anotados](img/equacao_reta.png)
 
-No gráfico, vemos que cada m² adicional acrescenta aproximadamente R$ 3.500 ao preço — esse é o $m$. O intercepto $b$ (R$ 80.000) é onde a reta cruza o eixo vertical.
+No gráfico, vemos que cada m² adicional acrescenta aproximadamente R\$ 3.500 ao preço — esse é o $m$. O intercepto $b$ (R\$ 80.000) é onde a reta cruza o eixo vertical.
 
 !!! note "Em ML você vai ver outras notações"
     A mesma equação aparece na literatura como $\hat{y} = \theta_1 x + \theta_0$ ou $\hat{y} = w_1 x + w_0$. Os símbolos mudam, o conceito é idêntico. $m$ e $b$ são os **parâmetros** que o modelo aprende durante o treinamento.
@@ -62,7 +62,7 @@ $$
 r_i = y_i - \hat{y}_i
 $$
 
-Se um imóvel custou R$ 465k e o modelo previu R$ 475k, o resíduo é −R$ 10k.
+Se um imóvel custou R\$ 100.000 e o modelo previu R\$ 90.000, o resíduo é −R\$ 10k.
 
 ![Resíduos anotados entre pontos reais e a reta](img/residuos.png)
 
@@ -84,8 +84,8 @@ Em palavras: calcule o erro de cada imóvel, eleve ao quadrado, some tudo e divi
 
 **Por que elevar ao quadrado?** Dois motivos:
 
-- Um erro de −R$ 50k e um erro de +R$ 50k não devem se cancelar — ambos são igualmente ruins
-- Erros maiores são penalizados de forma mais intensa: um erro de R$ 100k pesa 4× mais que um erro de R$ 50k
+* Um erro de −R\$ 50k e um erro de +R\$ 50k não devem se cancelar — ambos são igualmente ruins
+* Erros maiores são penalizados de forma mais intensa: um erro de R\$ 100k pesa 4× mais que um erro de R\$ 50k
 
 !!! tip "MSE como bússola"
     O modelo não sabe qual reta é a melhor de antemão. Ele testa diferentes valores de $m$ e $b$, calcula o MSE para cada combinação e caminha na direção que reduz esse número. Quando o MSE para de cair, o treinamento terminou.
@@ -108,8 +108,8 @@ $$
 
 Vai de **0 a 1**. Interpretação direta: *"que fração da variação nos preços o modelo consegue explicar pela área?"*
 
-- $R^2 = 0.92$ → 92% da variação de preços é explicada pela área. Modelo bem ajustado.
-- $R^2 = 0.40$ → apenas 40% da variação é capturada. Há muito padrão que o modelo não está vendo.
+* $R^2 = 0.92$ → 92% da variação de preços é explicada pela área. Modelo bem ajustado.
+* $R^2 = 0.40$ → apenas 40% da variação é capturada. Há muito padrão que o modelo não está vendo.
 
 ### RMSE — Raiz do Erro Quadrático Médio
 
@@ -117,7 +117,7 @@ $$
 RMSE = \sqrt{MSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
 $$
 
-É o MSE transformado de volta para a **unidade original dos dados**. Se você está prevendo preços em reais, o RMSE também é em reais — direto de interpretar. Um RMSE de R$ 35k significa que, em média, o modelo erra R$ 35.000 por imóvel.
+É o MSE transformado de volta para a **unidade original dos dados**. Se você está prevendo preços em reais, o RMSE também é em reais — direto de interpretar. Um RMSE de R\$ 35k significa que, em média, o modelo erra R\$ 35.000 por imóvel.
 
 ![Comparação entre modelo com R² alto e baixo](img/avaliacao_modelo.png)
 
@@ -128,18 +128,18 @@ $$
 
 ## Resumo
 
-| Conceito | No exemplo dos imóveis |
-|---|---|
-| **Equação da reta** | Preço = 3500 × Área + 80.000 |
-| **Resíduo** | Diferença entre o preço real e o previsto para cada imóvel |
-| **MSE** | Média dos erros ao quadrado em todo o conjunto |
-| **R²** | Quanto da variação de preços a área consegue explicar |
-| **RMSE** | Erro médio em reais — mesma unidade do problema |
+| Conceito            | No exemplo dos imóveis                                     |
+| ------------------- | ---------------------------------------------------------- |
+| **Equação da reta** | Preço = 3500 × Área + 80.000                               |
+| **Resíduo**         | Diferença entre o preço real e o previsto para cada imóvel |
+| **MSE**             | Média dos erros ao quadrado em todo o conjunto             |
+| **R²**              | Quanto da variação de preços a área consegue explicar      |
+| **RMSE**            | Erro médio em reais — mesma unidade do problema            |
 
 ---
 
 ## 📚 Explore a Documentação
 
-- **Scikit-learn — LinearRegression:** [scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
-- **Scikit-learn — métricas de regressão:** [scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics)
-- **StatQuest — Linear Regression (vídeo):** [youtube.com/watch?v=nk2CQITm_eo](https://www.youtube.com/watch?v=nk2CQITm_eo)
+* **Scikit-learn — LinearRegression:** https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+* **Scikit-learn — métricas de regressão:** https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics
+* **StatQuest — Linear Regression (vídeo):** https://www.youtube.com/watch?v=nk2CQITm_eo
