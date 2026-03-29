@@ -91,3 +91,52 @@ suspeitos[["Latitude", "Longitude", "AveOccup",
     | **Hotel** | 100–500 | Quartos de hotel contam como domicílios |
     | **Hospital / Asilo** | 50–200 | Leitos por "unidade residencial" |
     | **Base militar** | 200–800 | Quartel conta como domicílio |
+
+---
+
+## Problema 3 — Outliers Geográficos
+
+Nem todos os outliers são numéricos. Alguns blocos têm preços **anormalmente altos ou baixos** comparados com seus vizinhos geográficos:
+
+```python
+from scipy import stats
+
+# Identificar outliers usando Z-score
+z_scores = np.abs(stats.zscore(df["MedHouseVal"]))
+eh_suspeito = z_scores > 2.5
+
+# Visualizar no mapa
+fig, ax = plt.subplots(figsize=(12, 8))
+
+# Blocos normais
+normais = df[~eh_suspeito]
+ax.scatter(normais["Longitude"], normais["Latitude"],
+           c=normais["MedHouseVal"], cmap="Blues",
+           alpha=0.5, s=normais["Population"]/100,
+           linewidths=0, label="Blocos normais")
+
+# Blocos suspeitos
+suspeitos = df[eh_suspeito]
+ax.scatter(suspeitos["Longitude"], suspeitos["Latitude"],
+           c=suspeitos["MedHouseVal"], cmap="Reds",
+           alpha=0.8, s=suspeitos["Population"]/100,
+           linewidths=1.5, edgecolors="red", marker="D",
+           label=f"Outliers ({len(suspeitos)} blocos)")
+
+ax.set_title("Outliers Geográficos: Blocos com Preços Anômalos",
+             fontweight="bold", fontsize=12)
+ax.set_xlabel("Longitude")
+ax.set_ylabel("Latitude")
+ax.legend()
+ax.grid(True, alpha=0.2)
+plt.tight_layout()
+plt.show()
+```
+
+![Mapa geográfico dos outliers](img/mapa_suspeitos.png)
+
+!!! warning "O que causa outliers geográficos?"
+    - **Bairros premium inesperados** — Uma região normalmente barata tem um bloco muito caro (gentrificação, novo desenvolvimento)
+    - **Guetos isolados** — Um bairro nobre tem um bloco muito barato (bairro degradado, insegurança)
+    - **Efeitos de fronteira** — Blocos na borda de cidades/regiões têm padrões de preço muito diferentes
+    - **Erros de geocodificação** — Coordenadas incorretas podem colocar um bloco no lugar errado do mapa
