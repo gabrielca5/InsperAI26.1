@@ -58,6 +58,7 @@ extra_javascript:
 
 nav:
   - Início: index.md
+  
   - "Aula 1 — Fundamentos":
       - Introdução: aula-01/introducao.md
       - História da IA: aula-01/historia.md
@@ -65,6 +66,7 @@ nav:
       - "2. Estatística e Probabilidade": aula-01/estatistica.md
       - "3. O Que vem por 'AI'": aula-01/aprofundamento.md
       - "4. Atividades": aula-01/atividades.md
+
   - "Aula 2 — Regressão Linear":
       - "Exposição Teórica":
           - "Visão Geral": aula-02/index.md
