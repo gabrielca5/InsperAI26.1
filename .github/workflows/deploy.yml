@@ -19,7 +19,8 @@ jobs:
           python-version: "3.11"
 
       - name: Instalar dependências
-        run: pip install mkdocs-material
+        working-directory: handout
+        run: pip install -r requirements.txt
 
       - name: Deploy
         working-directory: handout
