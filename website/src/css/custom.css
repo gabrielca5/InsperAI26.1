@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* MkDocs Material indigo */
+  --ifm-color-primary: #3F51B5;
+  --ifm-color-primary-dark: #3949AB;
+  --ifm-color-primary-darker: #303F9F;
+  --ifm-color-primary-darkest: #283593;
+  --ifm-color-primary-light: #5C6BC0;
+  --ifm-color-primary-lighter: #7986CB;
+  --ifm-color-primary-lightest: #9FA8DA;
+
+  /* Deep orange accent */
+  --ifm-color-secondary: #FF6E40;
+
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', monospace;
+  --ifm-code-font-size: 90%;
+  --ifm-heading-font-weight: 600;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #7986CB;
+  --ifm-color-primary-dark: #5C6BC0;
+  --ifm-color-primary-darker: #3F51B5;
+  --ifm-color-primary-darkest: #3949AB;
+  --ifm-color-primary-light: #9FA8DA;
+  --ifm-color-primary-lighter: #C5CAE9;
+  --ifm-color-primary-lightest: #E8EAF6;
+}
+
+a {
+  color: var(--ifm-color-primary);
+}
+
+a:hover {
+  color: var(--ifm-color-secondary);
+}
