@@ -28,5 +28,8 @@ Material didático para o curso de Inteligência Artificial com foco em Machine 
 ## Autor: 
 
 - Gabriel Chaves Aguiar 
+
+---
+
 Acesse **https://gabrielca5.github.io/aulas-iAI-2026.1** no navegador.
 
