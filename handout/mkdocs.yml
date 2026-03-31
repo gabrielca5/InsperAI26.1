@@ -1,6 +1,6 @@
 site_name: Aulas — Insper AI
 site_description: Material de apoio para as aulas de Inteligência Artificial
-site_author: Professor
+site_author: Gabriel Aguiar
 site_url: https://gabrielca5.github.io/aulas-iAI-2026.1/
 
 theme:
@@ -28,7 +28,6 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.indexes
-    - navigation.top
     - navigation.instant
     - navigation.tracking
     - content.code.copy
