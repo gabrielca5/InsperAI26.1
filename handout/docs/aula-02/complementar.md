@@ -7,7 +7,7 @@
 **Gabriel Valentim** é Co-Founder da **NeroAI**, empresa focada em soluções de inteligência artificial aplicada. Com uma trajetória construída dentro do próprio Insper, Gabriel é um dos nomes que conecta o ambiente acadêmico com a prática real de dados, e o notebook que você vai encontrar no link abaixo reflete exatamente isso: uma análise limpa, bem raciocínada e próxima do que se faz no mercado.
 
 !!! info "Por que indicar esse material?"
-    Livros e aulas cobrem os conceitos. Notebooks de praticantes mostram **como esses conceitos se traduzem em decisões reais**, o que cortar, o que transformar, por que escolher uma abordagem e não outra. O material do Gabriel é um bom exemplo disso.
+    Livros e aulas cobrem os conceitos. Notebooks de praticantes mostram **como esses conceitos se traduzem em decisões reais**, o que cortar, o que transformar, por que escolher uma abordagem e não outra. Esse notebook é um bom exemplo disso.
 
 ---
 

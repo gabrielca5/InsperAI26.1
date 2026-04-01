@@ -28,9 +28,8 @@ O curso cobre desde os fundamentos estatísticos até redes neurais profundas, p
 
 | Monitor | E-mail |
 |---|---|
-| Thomas Kassabian | ThomasKassabian@gmail.com |
-| Vitinho | Vitinho@gmail.com |
-| Gabriel Aguair | gabrielaguair@gmail.com |
+| Thomas Kassabian | thomaskmkassabian@gmail.com |
+| Gabriel Aguiar | gabrielaguiar01@gsmail.com |
 
 ---
 

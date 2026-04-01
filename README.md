@@ -51,27 +51,37 @@ Primeiro modelo supervisionado — do zero à avaliação.
 
 ## Acesse o Material
 
-🔗 **[https://github.com/gabrielca5/InsperAI26.1/](https://github.com/gabrielca5/InsperAI26.1/)**
+- Repositório: **[https://github.com/InsperAI-Trainee/InsperAI26.1/](https://github.com/InsperAI-Trainee/InsperAI26.1/)**
+- Site: **[https://insperai-trainee.github.io/InsperAI26.1/](https://insperai-trainee.github.io/InsperAI26.1/)**
 
 ---
 
-## Como rodar localmente
+## Como testar localmente o MkDocs
 ```bash
-# Instalar dependências
-pip install mkdocs-material mkdocs-quiz
+# Instalar as dependências do projeto
+uv sync
 
-# Subir o servidor local
-mkdocs serve
+# Subir o servidor local a partir da raiz do repositório
+uv run mkdocs serve -f handout/mkdocs.yml
 ```
 
 Acesse `http://127.0.0.1:8000` no navegador.
 
+Para validar o site sem subir o servidor, rode o build em modo estrito:
+
+```bash
+uv run mkdocs build -f handout/mkdocs.yml --strict
+```
+
 ---
 
-## Autor
+## Autoria e Manutenção
 
 **Gabriel Chaves Aguiar**
-Membro do InsperAI — 2026.1
+Membro da Insper AI - 2026.1
+
+**Thomas Kassabian**
+Diretor da Insper AI - 2026.1
 
 ---
 

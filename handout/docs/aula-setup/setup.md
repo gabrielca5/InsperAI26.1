@@ -12,5 +12,5 @@ Nesta seção você vai instalar e configurar quatro ferramentas essenciais:
 Não é necessário entender tudo de uma vez. O objetivo aqui é ter o ambiente funcionando, e o significado de cada peça vai ficando mais claro conforme o curso avança.
 
 
-!!! Autor
-    Material desenvolvido por: **Hector Mathias**
+!!! note "Manutenção"
+    Este material é mantido coletivamente pelo **InsperAI Trainee**.

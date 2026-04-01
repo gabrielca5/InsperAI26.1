@@ -1,7 +1,9 @@
 site_name: Aulas — Insper AI
 site_description: Material de apoio para as aulas de Inteligência Artificial
-site_author: Gabriel Aguiar
-site_url: https://gabrielca5.github.io/aulas-iAI-2026.1/
+site_author: InsperAI
+site_url: https://insperai-trainee.github.io/InsperAI26.1/
+repo_url: https://github.com/InsperAI-Trainee/InsperAI26.1/
+repo_name: InsperAI-Trainee/InsperAI26.1
 
 theme:
   name: material
@@ -55,31 +57,36 @@ extra_javascript:
   - js/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
+draft_docs: |
+  aula-01
+  aula-02
+
 
 nav:
   - Início: index.md
   - "Setup de ambiente" :
-      - Introdução: setup/setup.md
-      - "1. Git": setup/git.md
-      - "2. GitHub": setup/github.md
-      - "3. Vscode" : setup/vscode.md
-      - "4. Gerenciador de pacotes" : setup/ge_pacotes.md
-  - "Aula 1 — Fundamentos":
-      - Introdução: aula-01/introducao.md
-      - História da IA: aula-01/historia.md
-      - "1. Python e NumPy": aula-01/python_numpy.md
-      - "2. Estatística e Probabilidade": aula-01/estatistica.md
-      - "3. O Que vem por 'AI'": aula-01/aprofundamento.md
-      - "4. Atividades": aula-01/atividades.md
+      - Introdução: aula-setup/setup.md
+      - "1. Git": aula-setup/git.md
+      - "2. GitHub": aula-setup/github.md
+      - "3. Vscode" : aula-setup/vscode.md
+      - "4. Gerenciador de pacotes" : aula-setup/ge_pacotes.md
 
-  - "Aula 2 — Regressão Linear":
-      - "Exposição Teórica":
-          - "Visão Geral": aula-02/index.md
-          - "Regressão Linear": aula-02/teoria.md
-      - "Estudo de Caso":
-          - "1. Exploração dos Dados": aula-02/exploracao.md
-          - "2. Outliers e Dados Suspeitos": aula-02/outliers.md
-          - "3. Treinando o Modelo": aula-02/treinamento.md
-          - "4. Leitura Complementar": aula-02/complementar.md
-          - "5. Atividades": aula-02/atividades.md
-          - "6. Resumo" : aula-02/resumo.md
+  # - "Aula 1 — Fundamentos":
+  #     - Introdução: aula-01/introducao.md
+  #     - História da IA: aula-01/historia.md
+  #     - "1. Python e NumPy": aula-01/python_numpy.md
+  #     - "2. Estatística e Probabilidade": aula-01/estatistica.md
+  #     - "3. O Que vem por 'AI'": aula-01/aprofundamento.md
+  #     - "4. Atividades": aula-01/atividades.md
+
+  # - "Aula 2 — Regressão Linear":
+  #     - "Exposição Teórica":
+  #         - "Visão Geral": aula-02/index.md
+  #         - "Regressão Linear": aula-02/teoria.md
+  #     - "Estudo de Caso":
+  #         - "1. Exploração dos Dados": aula-02/exploracao.md
+  #         - "2. Outliers e Dados Suspeitos": aula-02/outliers.md
+  #         - "3. Treinando o Modelo": aula-02/treinamento.md
+  #         - "4. Leitura Complementar": aula-02/complementar.md
+  #         - "5. Atividades": aula-02/atividades.md
+  #         - "6. Resumo" : aula-02/resumo.md
