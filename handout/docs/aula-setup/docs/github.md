@@ -126,13 +126,13 @@ Para testar se tudo foi configurado corretamente, vamos praticar com uma ativida
 
 - Abra o [link do classroom](https://classroom.github.com/assignment-invitations/752975e33be919418992f3098dfb5802) e clique em "Accept this assignment". Uma tela com a seguinte deve ser aberta:
 
-![alt text](assignment.png)
+![alt text](../img/assignment.png)
 
 O GitHub Classroom automaticamente cria um repositório para você, a partir de um template com os arquivos de cada atividade.
 
 - Clique no link do repositório. A página do seu repositório no GitHub deve abrir:
 
-![alt text](repository.png)
+![alt text](../img/repository.png)
 
 - Clique no botão verde `Code`.
 - Escolha a aba correta:

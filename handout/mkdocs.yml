@@ -65,12 +65,12 @@ draft_docs: |
 nav:
   - Início: index.md
   - "Setup de ambiente" :
-      - Introdução: aula-setup/setup.md
-      - "1. Git": aula-setup/git.md
-      - "2. GitHub": aula-setup/github.md
-      - "3. Vscode" : aula-setup/vscode.md
-      - "4. Gerenciador de pacotes" : aula-setup/ge_pacotes.md
-      - "5. Fluxo com Git e GitHub": aula-setup/fluxo-git-github.md
+      - Introdução: aula-setup/docs/setup.md
+      - "1. Git": aula-setup/docs/git.md
+      - "2. GitHub": aula-setup/docs/github.md
+      - "3. Vscode" : aula-setup/docs/vscode.md
+      - "4. Gerenciador de pacotes" : aula-setup/docs/ge_pacotes.md
+      - "5. Fluxo com Git e GitHub": aula-setup/docs/fluxo-git-github.md
 
   # - "Aula 1 — Fundamentos":
   #     - Introdução: aula-01/introducao.md

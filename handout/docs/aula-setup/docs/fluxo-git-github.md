@@ -11,7 +11,7 @@ Vamos criar um repositório, que é onde o projeto ficará armazenado.
 1. No GitHub, clique no botão `+` no canto superior direito.
 2. Clique em `New repository`.
 
-![alt text](criar-repo.png)
+![alt text](../img/criar-repo.png)
 
 3. Preencha:
 
@@ -34,7 +34,7 @@ Clonar significa trazer uma cópia do repositório do GitHub para a sua máquina
 
 3. Copie a URL mostrada.
 
-![alt text](image.png)
+![alt text](../img/image.png)
 
 Ela terá um formato parecido com um destes:
 
@@ -48,7 +48,7 @@ git@github.com:usuario/nome-do-repositorio.git
 
 4. Abra o Visual Studio Code em uma janela nova.
 
-![alt text](image-1.png)
+![alt text](../img/image-1.png)
 
 5. Clique em `Clone Git Repository...`
 6. Cole a URL copiada e aperte `Enter`.
@@ -124,7 +124,7 @@ Na prática, ele serve para:
 
 Depois de fazer `git push`, o GitHub normalmente mostra o botão `Compare & pull request`.
 
-![alt text](ver-pr.png)
+![alt text](../img/ver-pr.png)
 
 1. Clique nesse botão.
 2. Revise o título e a descrição do PR.
@@ -135,11 +135,11 @@ Depois de fazer `git push`, o GitHub normalmente mostra o botão `Compare & pull
 1. Veja as alterações na aba `Files changed`.
 2. Se estiver tudo certo, o merge pode ser feito na aba `Conversation`.
 
-![alt text](image-2.png)
+![alt text](../img/image-2.png)
 
 3. Clique em `Merge pull request`.
 
-![alt text](image-3.png)
+![alt text](../img/image-3.png)
 
 Se houver conflitos, será necessário resolvê-los antes do merge. Quando isso acontecer, peça ajuda sem hesitar: conflito de branch é uma parte normal do trabalho com Git.
 
