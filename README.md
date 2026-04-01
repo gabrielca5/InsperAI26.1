@@ -61,8 +61,8 @@ Primeiro modelo supervisionado — do zero à avaliação.
 # Instalar as dependências do projeto
 uv sync
 
-# Subir o servidor local a partir da raiz do repositório
-uv run mkdocs serve -f handout/mkdocs.yml
+# Subir o servidor local com hot reload
+make dev
 ```
 
 Acesse `http://127.0.0.1:8000` no navegador.
@@ -70,7 +70,7 @@ Acesse `http://127.0.0.1:8000` no navegador.
 Para validar o site sem subir o servidor, rode o build em modo estrito:
 
 ```bash
-uv run mkdocs build -f handout/mkdocs.yml --strict
+make deploy
 ```
 
 ---
