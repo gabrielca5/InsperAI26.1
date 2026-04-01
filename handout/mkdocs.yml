@@ -68,7 +68,7 @@ nav:
       - Introdução: aula-setup/docs/setup.md
       - "1. Git": aula-setup/docs/git.md
       - "2. GitHub": aula-setup/docs/github.md
-      - "3. Vscode" : aula-setup/docs/vscode.md
+      - "3. Visual Studio Code (IDE)" : aula-setup/docs/vscode.md
       - "4. Gerenciador de pacotes" : aula-setup/docs/ge_pacotes.md
       - "5. Fluxo com Git e GitHub": aula-setup/docs/fluxo-git-github.md
 

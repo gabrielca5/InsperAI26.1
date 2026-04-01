@@ -134,6 +134,10 @@ O GitHub Classroom automaticamente cria um repositório para você, a partir de 
 
 ![alt text](../img/repository.png)
 
+### Clonando o repositório
+
+Até agora o repositório só existe na nuvem. Para de fato trabalhar nele, você precisa  clonar o repositório, ou seja, ter uma cópia local dele no seu computador. Para isso:
+
 - Clique no botão verde `Code`.
 - Escolha a aba correta:
 
@@ -189,4 +193,4 @@ cd nome-do-repositorio
 
 Se tudo deu certo, você terá uma pasta no seu computador com o nome do repositório que você viu no GitHub. Dentro dela, você criará e gerenciará seus códigos. 
 
-Para fazer isso, você vai precisar de um **editor de códigos (IDE)**. Te ensinaremos na próxima seção.
+Para fazer isso, você vai precisar de um **editor de código (IDE)**. Te ensinaremos na próxima seção.
