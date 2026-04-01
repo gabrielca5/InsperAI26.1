@@ -1,122 +1,265 @@
 # GitHub
 
-É uma plataforma online que nos permite:
+O GitHub é a plataforma onde vamos hospedar nossos projetos na nuvem.
 
-- armazenar projetos com Git;
-- compartilhar código e colaborar com outras pessoas;
-- manter versões do seu projeto na nuvem.
+Na prática, ele permite:
 
-## Crie uma conta
+- guardar seus projetos online;
+- compartilhar código com outras pessoas;
+- colaborar em grupo;
+- sincronizar o projeto entre sua máquina e a nuvem.
 
-Acesse: [GitHub](https://github.com)
+## O que é um repositório?
 
-## Criando um Repositório:
+Um repositório é a pasta do projeto organizada para ser acompanhada pelo Git.
 
-Vamos criar um repositório (onde ficará armazenado nosso projeto) clicando no "+":
+Na prática, é onde ficam:
+
+- os arquivos do seu código;
+- o histórico das alterações;
+- as branches do projeto;
+- as informações necessárias para colaborar com outras pessoas.
+
+Você pode pensar em um repositório como a "casa" do projeto.
+
+Quando o repositório está no seu computador, você trabalha localmente. Quando ele está no GitHub, ele também passa a existir na nuvem, o que permite salvar, compartilhar e sincronizar o projeto com outras pessoas.
+
+## Crie sua conta
+
+1. Acesse: [github.com](https://github.com)
+2. Crie sua conta.
+3. Confirme o email usado no cadastro.
+
+Se você ainda não configurou seu nome e email no Git, volte um momento para a etapa anterior e rode os comandos de `git config`.
+
+## Conectando sua máquina ao GitHub
+
+Aqui entra uma distinção importante:
+
+- sua senha do GitHub serve para entrar no site;
+- sua chave SSH serve para autenticar sua máquina no terminal;
+
+Para o fluxo do curso, a opção mais simples e estável é usar **SSH**.
+
+### 1. Gere uma chave SSH
+
+No terminal, rode: **(Não esqueça de mudar o e-mail para o mesmo da conta do github)**
+
+```bash
+ssh-keygen -t ed25519 -C "seu-email@exemplo.com"
+```
+
+Use o mesmo email da sua conta do GitHub.
+
+Se você estiver no Windows e o comando `ssh-keygen` não funcionar no PowerShell, abra o `Git Bash`, que é instalado junto com o Git for Windows, e rode o mesmo comando lá.
+
+Quando aparecerem as perguntas:
+
+1. Aperte `Enter` para aceitar o local padrão do arquivo.
+2. Aperte `Enter` duas vezes para criar a chave sem passphrase (É uma camada de proteção extra que não vai ser necessária)
+
+### 2. Adicione a chave ao `ssh-agent`
+
+#### Windows (PowerShell)
+
+Se aparecer erro de permissão neste passo, abra o PowerShell como administrador e tente novamente.
+
+```powershell
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+Start-Service ssh-agent
+ssh-add $env:USERPROFILE\.ssh\id_ed25519
+```
+
+#### macOS e Linux
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+### 3. Copie sua chave pública
+
+#### Windows (PowerShell)
+
+```powershell
+Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub
+```
+
+#### macOS e Linux
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Copie a linha inteira exibida no terminal.
+
+### 4. Cadastre a chave no GitHub
+
+1. No GitHub, clique na sua foto de perfil.
+2. Entre em `Settings`.
+3. Vá em `SSH and GPG keys`.
+4. Clique em `New SSH key`.
+5. Dê um nome para a chave, como `Notebook pessoal` ou `PC de casa`.
+6. Cole a chave pública copiada no passo anterior.
+7. Salve.
+
+### 5. Teste a conexão
+
+Rode:
+
+```bash
+ssh -T git@github.com
+```
+
+Na primeira vez, o terminal pode perguntar se você quer confiar no servidor do GitHub. Digite `yes`.
+
+Se tudo deu certo, você verá uma mensagem dizendo que a autenticação funcionou.
+
+## Criando um repositório
+
+Vamos criar um repositório, que é onde o projeto ficará armazenado.
+
+1. No GitHub, clique no botão `+` no canto superior direito.
+2. Clique em `New repository`.
 
 ![alt text](criar-repo.png)
 
-1. Clique em "New repository"
-2. Aqui, você pode:
-- escolher o nome do projeto; 
-- definir se ele é público ou privado; 
-- incluir um arquivo README no projeto (recomendo sempre deixar on para poder documentar os projetos);
-- adicionar python para o .gitignore (arquivo importante para guardar segredos do projeto que não podem vir a público).
-3. "Clique em "Create repository"
+3. Preencha:
 
-## Clonando um repositório:
+- nome do projeto;
+- visibilidade: público ou privado;
+- `README`: pode deixar marcado;
+- `.gitignore`: escolha `Python`.
 
-1. Clicando no botão verde "Code", você verá algo como:
+4. Clique em `Create repository`.
+
+## Clonando um repositório
+
+Clonar significa trazer uma cópia do repositório do GitHub para a sua máquina.
+
+1. No repositório, clique no botão verde `Code`.
+2. Escolha a aba `SSH`.
+3. Copie a URL mostrada.
 
 ![alt text](image.png)
 
-2. Copie essa URL que aparece.
-3. Abra o Visual Studio Code em uma janela nova, e verá:
+Ela terá um formato parecido com este:
+
+```text
+git@github.com:usuario/nome-do-repositorio.git
+```
+
+4. Abra o Visual Studio Code em uma janela nova.
 
 ![alt text](image-1.png)
 
-4. Clique em "Clone Git Repository..." e cole a URL que você copiou. Aperte Enter.
+5. Clique em `Clone Git Repository...`
+6. Cole a URL copiada e aperte `Enter`.
 
-Pronto, o repositório criado por você ou terceiros agora está na sua maquina sujeito às suas mudanças.
-
-Normalmente, nossos projetos serão feitos em grupo, havendo o risco de que a mesma linha de código seja sobrescrita por mais de um programador, o que pode resultar em conflitos tenebrosos os quais você certamente não quer resolver. Para contornar esses problemas ao trabalhar em equipe, seguimos uma série de boas práticas, que a princípio podem parecer redundantes, mas fazem toda a diferença no dia a dia.
-
-Primeiro, vamos falar de branches.
+Pronto: agora o repositório existe na nuvem e também na sua máquina.
 
 ## Branches
 
-São as cópias do projeto principal (main) que você faz na sua máquina. Parece redundante, mas existe um grande risco em codar direto na main: se você quebrar o código e enviar para o GitHub, você quebra o projeto - e nem sempre é simples voltar atrás. Por isso existeme as branches, são cópias perfeitas que podem ser descartadas, sem afetar todo o projeto.
+Branch é uma linha paralela de trabalho. Em vez de alterar direto a `main`, você cria uma branch para desenvolver uma tarefa específica.
 
-Normalmente, uma branch serve para fazer uma tarefa espefícica, então não tenha medo de criar muitas branches - elas são seus checkpoints.
+Isso reduz o risco de quebrar a versão principal do projeto e facilita a revisão.
 
-1. Para criar uma branch, basta abrir o próprio terminal do VS Code e rodar:
+### Criando e entrando em uma branch
 
-````
-git branch "nome-da-branch"
-````
-Você pode visualizar todas as branches criadas deixando o campo do nome vazio
+No terminal do VS Code, rode:
 
-2. Entrando na branch:
+```bash
+git switch -c nome-da-branch
+```
 
-````
-git switch nome-da-branch
-````
+Exemplo:
 
-3. Faça suas alterações e salve com um commit (são os checkpoints dos seus checkpoints):
+```bash
+git switch -c adiciona-grafico-inicial
+```
 
-````
-git add . (inclue todas suas alterações para mandar para o GitHUb. Sim, o "." faz parte do comando)
+Para ver em qual branch você está:
 
-git status (não é obrigatório, mas sempre verifique o status para saber se todas suas alterações sofram incluidas)
+```bash
+git branch
+```
 
-git commit -m "Nome do commit: [shift+enter]
-descrição das alterações que você fez"
+## Salvando suas mudanças
 
-git push origin main (faça isso só quando você quiser publicar a branch, você pode fazer vários commits antes de rodar esse comando)
+Depois de editar os arquivos:
 
-````
-obs: copie uma linha de cada vez nessa sequência, sem incluir os comentários entre parênteses.
+1. Veja o que mudou:
 
-4. Feito isso, você vai abrir um PR no GitHub.
+```bash
+git status
+```
 
+2. Adicione os arquivos ao próximo commit:
+
+```bash
+git add .
+```
+
+3. Crie um commit:
+
+```bash
+git commit -m "Adiciona grafico inicial do projeto"
+```
+
+4. Envie sua branch para o GitHub:
+
+```bash
+git push -u origin nome-da-branch
+```
+
+Na primeira vez, troque `nome-da-branch` pelo nome real da branch que você criou.
 
 ## Pull Request (PR)
 
-Você deve fazer um PR para enviar suas mudanças em um projeto para o GitHub (onde está o projeto principal).
-Um PR é você pedindo para o resto do seu grupo analisar as alterações que você fez e decidir se elas podem ser incluídas .
+Um Pull Request é o pedido para que suas mudanças entrem no projeto principal.
 
-1. Clique em "Compare & pull request":
+Na prática, ele serve para:
+
+- mostrar o que você alterou;
+- permitir revisão por outras pessoas;
+- discutir mudanças antes do merge;
+- manter a `main` mais estável.
+
+### Abrindo um PR
+
+1. Depois de fazer `git push`, o GitHub normalmente mostra o botão `Compare & pull request`.
 
 ![alt text](ver-pr.png)
 
-Depois dessa tela, crie seu PR apertando em create.
+2. Clique nesse botão.
+3. Revise o título e a descrição do PR.
+4. Clique em `Create pull request`.
 
-2. Você não deve aprovar seu projeto por conta própria, mesmo que ele não tenha nenhum conflito, mas você pode aprovar o de outras pessoas:
+### Revisando um PR
+
+1. Veja as alterações na aba `Files changed`.
+2. Se estiver tudo certo, o merge pode ser feito na aba `Conversation`.
 
 ![alt text](image-2.png)
 
-3. Verifique as mudanças feitas na aba "Files Changed". Se tudo parecer de acordo, aceite o PR na aba de "Conversation" apertando em "Merge pull request":
+3. Clique em `Merge pull request`.
 
 ![alt text](image-3.png)
 
-4. Se houver conflitos, você terá que resolver antes de dar o merge. Sempre que necessário, consulte alguém para te auxiliar, sabemos que não é trivial, então não tenha receio de perguntar.
+Se houver conflitos, será necessário resolvê-los antes do merge. Quando isso acontecer, peça ajuda sem hesitar: conflito de branch é uma parte normal do trabalho com Git.
 
-## Git Pull
+## Atualizando sua cópia local com `git pull`
 
-Esse comando serve para você puxar todas as alterações que estão no GitHub para a sua máquina. 
+Antes de começar uma tarefa nova, atualize sua `main`.
 
-1. É necessário que você esteja na main para executar esse comando. Para isso, rode:
+1. Volte para a branch principal:
 
+```bash
+git switch main
+```
 
-````
-git checkout main
+2. Puxe as alterações mais recentes do GitHub:
 
-````
-
-2. Escreva no terminal:
-
-````
-
-git pull
-
-````
+```bash
+git pull origin main
+```
