@@ -70,7 +70,8 @@ nav:
       - "2. GitHub": aula-setup/docs/github.md
       - "3. Visual Studio Code (IDE)" : aula-setup/docs/vscode.md
       - "4. UV" : aula-setup/docs/uv.md
-      - "5. Fluxo com Git e GitHub": aula-setup/docs/fluxo-git-github.md
+      - "5. Primeiro handout no repositório": aula-setup/docs/primeiro-handout.md
+      - "6. Fluxo com Git e GitHub": aula-setup/docs/fluxo-git-github.md
 
   # - "Aula 1 — Fundamentos":
   #     - Introdução: aula-01/introducao.md

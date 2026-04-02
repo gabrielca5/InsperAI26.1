@@ -130,6 +130,7 @@ Se você instalou o `uv` pelo instalador oficial, pode atualizá-lo com:
 uv self update
 ```
 
+# Usando o UV (consulte essa seção sempre que precisar)
 ## Inicializando um projeto
 
 Se você estiver começando um projeto do zero dentro de um repositório, rode:
