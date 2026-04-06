@@ -45,7 +45,7 @@ print(f"Teste:   {X_test.shape[0]:,} amostras")
 
 O `LinearRegression` do scikit-learn resolve a **Equação Normal** internamente, encontrando os coeficientes que minimizam o erro quadrático médio de forma exata:
 
-$\hat{\mathbf{w}} = (X^T X)^{-1} X^T \mathbf{y}$
+$$\hat{\theta} = (X^T X)^{-1} X^T y$$
 ```python
 from sklearn.linear_model import LinearRegression
 

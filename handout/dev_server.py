@@ -8,6 +8,17 @@ import mkdocs.livereload
 import watchdog.events
 
 
+def build_dev_url(dev_addr: str) -> str:
+    host, _, port = dev_addr.rpartition(":")
+    if not host:
+        host = "127.0.0.1"
+    if host in {"0.0.0.0", "::", "[::]"}:
+        host = "127.0.0.1"
+    if not port:
+        port = "8000"
+    return f"http://{host}:{port}/"
+
+
 def patch_livereload_watch() -> None:
     original_watch = mkdocs.livereload.LiveReloadServer.watch
 
@@ -41,8 +52,8 @@ def main() -> None:
     args = parser.parse_args()
 
     patch_livereload_watch()
+    print(f"Dev server: {build_dev_url(args.dev_addr)}", flush=True)
     mkdocs.commands.serve.serve(config_file="mkdocs.yml", dev_addr=args.dev_addr)
-
 
 if __name__ == "__main__":
     main()
