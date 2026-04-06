@@ -22,3 +22,11 @@ Bem-vind@ ao repositório de aulas da Insper AI. Aqui você encontrará o conte�
 
 - 🌐 **SIGE:** [insperai.sige.sh](https://insperai.sige.sh)
 - 🐐 **Curso 1 de Machine Learning do Andrew Ng**: [youtube/playlist](https://www.youtube.com/watch?v=vStJoetOxJg&list=PLkDaE6sCZn6FNC6YRfRQc_FbeQrF8BwGI&index=1)
+
+---
+
+## Referências
+
+- **Machine Learning Specialization** — Andrew Ng, DeepLearning.AI em colaboração com Stanford Online: [deeplearning.ai/courses/machine-learning-specialization](https://www.deeplearning.ai/courses/machine-learning-specialization/)
+- **Deep Learning Specialization** — Andrew Ng, DeepLearning.AI: [deeplearning.ai/courses/deep-learning-specialization](https://www.deeplearning.ai/courses/deep-learning-specialization/)
+- **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (3rd ed.)** — Aurélien Géron, O'Reilly: [oreilly.com/library/view/hands-on-machine-learning/9781098125967](https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/)
