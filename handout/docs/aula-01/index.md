@@ -1,4 +1,4 @@
-# Aula 02 — Regressão Linear
+# Aula 1 — Regressão Linear
 
 Nesta aula saímos da teoria e colocamos a mão no dado. O fio condutor é o **California Housing Dataset**, um conjunto real, com problemas reais, que vai nos forçar a tomar decisões antes mesmo de treinar qualquer modelo.
 

@@ -60,8 +60,7 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 draft_docs: |
-  aula-00
-  aula-02
+  aula-01
 
 
 nav:
@@ -83,14 +82,14 @@ nav:
       - "3. O Que vem por 'AI'": aula-00/aprofundamento.md
       - "4. Atividades": aula-00/atividades.md
 
-  - "Aula 2 — Regressão Linear":  
+  - "Aula 1 — Regressão Linear":  
       - "Exposição Teórica":
-          - "Visão Geral": aula-02/index.md
-          - "Regressão Linear": aula-02/teoria.md
+          - "Visão Geral": aula-01/index.md
+          - "Regressão Linear": aula-01/teoria.md
       - "Estudo de Caso":
-          - "1. Exploração dos Dados": aula-02/exploracao.md
-          - "2. Outliers e Dados Suspeitos": aula-02/outliers.md
-          - "3. Treinando o Modelo": aula-02/treinamento.md
-          - "4. Leitura Complementar": aula-02/complementar.md
-          - "5. Atividades": aula-02/atividades.md
-          - "6. Resumo" : aula-02/resumo.md
+          - "1. Exploração dos Dados": aula-01/exploracao.md
+          - "2. Outliers e Dados Suspeitos": aula-01/outliers.md
+          - "3. Treinando o Modelo": aula-01/treinamento.md
+          - "4. Leitura Complementar": aula-01/complementar.md
+          - "5. Atividades": aula-01/atividades.md
+          - "6. Resumo" : aula-01/resumo.md
