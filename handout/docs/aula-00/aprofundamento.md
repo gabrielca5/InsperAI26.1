@@ -1,4 +1,4 @@
-# 🔭 O que vem pela frente
+# O que vem pela frente
 
 Você já teve contato com os blocos de base: estatística descritiva, distribuições e NumPy. O que vem a seguir vai construir sobre esses conceitos — e algumas coisas vão parecer intimidadoras na primeira vez que aparecerem.
 
@@ -29,15 +29,9 @@ A pergunta certa não é *"o que significa cada símbolo?"* — é *"o que essa 
 
 **Gradiente descendente** — o mecanismo que o modelo usa para aprender, ajustando seus parâmetros na direção que reduz o erro a cada iteração.
 
-Esses dois trabalham juntos em praticamente todo algoritmo de aprendizado de máquina. Você vai vê-los funcionando em código nas próximas aulas.
+Esses dois trabalham juntos em praticamente todo algoritmo de aprendizado de máquina. Na Insper AI, você vai vê-los funcionando em código nas próximas aulas.
 
 !!! note "Não se preocupe agora"
     Esses conceitos vão ser destrinchados com calma — com código e exemplos concretos. Por enquanto, basta saber que eles existem e que têm um papel central no treinamento de modelos.
 
 ---
-
-## 📚 Explore a Documentação
-
-- **Scikit-learn (fundamentos de ML):** [scikit-learn.org/stable/getting_started](https://scikit-learn.org/stable/getting_started.html)
-- **3Blue1Brown — Gradiente Descendente (vídeo):** [youtube.com/watch?v=IHZwWFHWa-w](https://www.youtube.com/watch?v=IHZwWFHWa-w)
-- **Khan Academy — Estatística e Probabilidade:** [khanacademy.org/math/statistics-probability](https://www.khanacademy.org/math/statistics-probability)

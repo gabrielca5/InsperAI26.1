@@ -1,4 +1,4 @@
-# 🔢 Python e NumPy
+# Python e NumPy
 
 Python se tornou a linguagem padrão para Machine Learning por um motivo simples: é fácil de escrever, tem uma comunidade enorme e um ecossistema de bibliotecas maduro. O **NumPy** é a base desse ecossistema — quase tudo em ML, por baixo dos panos, é uma operação sobre arrays NumPy.
 
@@ -72,29 +72,56 @@ np.max(a)     # 9
 
 ## Produto Escalar
 
-O produto escalar entre dois vetores é uma das operações mais usadas em ML, está no coração da regressão linear, das redes neurais e de vários outros algoritmos:
+O produto escalar pega dois vetores do mesmo tamanho, multiplica elemento a elemento e soma os resultados. Em ML, essa operação aparece o tempo todo porque ela transforma uma lista de features em uma única pontuação:
+
+$$
+\mathbf{w}^T \mathbf{x} = \sum_{i=1}^{n} w_i x_i
+$$
+
+Ele está no coração da regressão linear, das redes neurais e de vários outros algoritmos:
 ```python
 pesos    = np.array([0.5, 0.3, 0.2])
 features = np.array([10.0, 5.0, 2.0])
 
-np.dot(pesos, features)   # 0.5*10 + 0.3*5 + 0.2*2 = 6.9
+np.dot(pesos, features)   # 6.9
+features @ pesos          # 6.9
 ```
 
 !!! note "O que isso representa?"
-    Em regressão linear, a previsão é exatamente um produto escalar: cada feature multiplicada pelo seu peso, tudo somado. O modelo aprende **quais pesos usar**.
+    Em regressão linear, a previsão começa exatamente assim: cada feature é multiplicada pelo seu peso, e depois tudo é somado. O modelo aprende **quais pesos usar** para que essa soma produza boas previsões.
 
----
+Se abrirmos a conta acima, fica mais claro:
 
-## Broadcasting
-
-NumPy permite operar arrays de formatos diferentes sem precisar duplicar dados:
 ```python
-m = np.array([[1, 2, 3],
-              [4, 5, 6]])
+0.5 * 10.0 + 0.3 * 5.0 + 0.2 * 2.0   # 6.9
+```
 
-m + 10          # soma 10 a todos os elementos
-m * np.array([1, 2, 3])   # multiplica cada coluna pelo valor correspondente
+Cada termo responde à pergunta: **quanto esta feature contribui para a previsão?**
+
+- Peso alto e positivo: empurra a previsão para cima.
+- Peso negativo: empurra a previsão para baixo.
+- Peso perto de zero: quase não influencia o resultado.
+
+Na prática, quase sempre existe também um termo de viés (`bias` ou `b`):
+
+```python
+bias = 1.2
+previsao = features @ pesos + bias   # 8.1
+```
+
+Quando temos várias amostras ao mesmo tempo, aplicamos o mesmo vetor de pesos a cada linha da matriz:
+
+```python
+X = np.array([
+    [10.0, 5.0, 2.0],
+    [ 8.0, 4.0, 1.0],
+    [12.0, 6.0, 3.0],
+])
+
+pesos = np.array([0.5, 0.3, 0.2])
+
+X @ pesos   # array([6.9, 5.4, 8.4])
 ```
 
 !!! warning "Cuidado com os shapes"
-    Broadcasting tem regras precisas de compatibilidade de dimensões. Quando der erro de shape, verifique com `array.shape` antes de operar.
+    Para o produto escalar funcionar, o número de features precisa bater com o número de pesos. Se `X` tem shape `(n_amostras, n_features)`, então `pesos` precisa ter shape `(n_features,)`.

@@ -37,7 +37,9 @@ theme:
     - toc.follow
 plugins:
   - search
-  - mkdocs_quiz
+  - mkdocs_quiz:
+      custom_translations:
+        pt-BR: translations/mkdocs_quiz.pt-BR.po
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -58,7 +60,7 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 draft_docs: |
-  aula-01
+  aula-00
   aula-02
 
 
@@ -73,22 +75,22 @@ nav:
       - "5. Primeiro handout": aula-setup/docs/primeiro-handout.md
       - "6. Fluxo com Git e GitHub": aula-setup/docs/fluxo-git-github.md
 
-  # - "Aula 1 — Fundamentos":
-  #     - Introdução: aula-01/introducao.md
-  #     - História da IA: aula-01/historia.md
-  #     - "1. Python e NumPy": aula-01/python_numpy.md
-  #     - "2. Estatística e Probabilidade": aula-01/estatistica.md
-  #     - "3. O Que vem por 'AI'": aula-01/aprofundamento.md
-  #     - "4. Atividades": aula-01/atividades.md
+  - "Aula 0 — Fundamentos":
+      - Introdução: aula-00/introducao.md
+      - História da IA: aula-00/historia.md
+      - "1. Python e NumPy": aula-00/python_numpy.md
+      - "2. Estatística e Probabilidade": aula-00/estatistica.md
+      - "3. O Que vem por 'AI'": aula-00/aprofundamento.md
+      - "4. Atividades": aula-00/atividades.md
 
-  # - "Aula 2 — Regressão Linear":
-  #     - "Exposição Teórica":
-  #         - "Visão Geral": aula-02/index.md
-  #         - "Regressão Linear": aula-02/teoria.md
-  #     - "Estudo de Caso":
-  #         - "1. Exploração dos Dados": aula-02/exploracao.md
-  #         - "2. Outliers e Dados Suspeitos": aula-02/outliers.md
-  #         - "3. Treinando o Modelo": aula-02/treinamento.md
-  #         - "4. Leitura Complementar": aula-02/complementar.md
-  #         - "5. Atividades": aula-02/atividades.md
-  #         - "6. Resumo" : aula-02/resumo.md
+  - "Aula 2 — Regressão Linear":  
+      - "Exposição Teórica":
+          - "Visão Geral": aula-02/index.md
+          - "Regressão Linear": aula-02/teoria.md
+      - "Estudo de Caso":
+          - "1. Exploração dos Dados": aula-02/exploracao.md
+          - "2. Outliers e Dados Suspeitos": aula-02/outliers.md
+          - "3. Treinando o Modelo": aula-02/treinamento.md
+          - "4. Leitura Complementar": aula-02/complementar.md
+          - "5. Atividades": aula-02/atividades.md
+          - "6. Resumo" : aula-02/resumo.md

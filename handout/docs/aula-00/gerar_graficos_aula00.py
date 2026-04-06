@@ -1,5 +1,5 @@
 """
-Script para gerar gráficos para a Aula 00 — Estatística e Probabilidade
+Script para gerar gráficos para a Aula 0 — Estatística e Probabilidade
 Coloca os gráficos em aula-00/img/
 """
 
@@ -14,7 +14,7 @@ plt.style.use('default')
 output_dir = Path("docs/aula-00/img")
 output_dir.mkdir(parents=True, exist_ok=True)
 
-print("🎨 Gerando gráficos para Aula 00...\n")
+print("Gerando gráficos para Aula 0...\n")
 
 # ============================================================================
 # 1. Histograma: Média vs Mediana com outliers
@@ -34,7 +34,7 @@ ax.grid(alpha=0.3)
 plt.tight_layout()
 plt.savefig(output_dir / 'histograma_media_mediana.png', dpi=100, bbox_inches='tight')
 plt.close()
-print("✅ histograma_media_mediana.png")
+print("histograma_media_mediana.png")
 
 # ============================================================================
 # 2. Histogramas: Desvio padrão baixo vs alto
@@ -60,7 +60,7 @@ axes[1].grid(alpha=0.3)
 plt.tight_layout()
 plt.savefig(output_dir / 'histograma_desvio.png', dpi=100, bbox_inches='tight')
 plt.close()
-print("✅ histograma_desvio.png")
+print("histograma_desvio.png")
 
 # ============================================================================
 # 3. Scatter plots: Correlação positiva, negativa e nula
@@ -97,7 +97,7 @@ axes[2].grid(alpha=0.3)
 plt.tight_layout()
 plt.savefig(output_dir / 'scatter_correlacao.png', dpi=100, bbox_inches='tight')
 plt.close()
-print("✅ scatter_correlacao.png")
+print("scatter_correlacao.png")
 
 # ============================================================================
 # 4. Heatmap de Correlação
@@ -140,7 +140,7 @@ plt.colorbar(im, ax=ax, label='Correlação')
 plt.tight_layout()
 plt.savefig(output_dir / 'heatmap_correlacao.png', dpi=100, bbox_inches='tight')
 plt.close()
-print("✅ heatmap_correlacao.png")
+print("heatmap_correlacao.png")
 
 # ============================================================================
 # 5. Distribuições Normal e Uniforme
@@ -172,6 +172,6 @@ axes[1].grid(alpha=0.3)
 plt.tight_layout()
 plt.savefig(output_dir / 'distribuicoes.png', dpi=100, bbox_inches='tight')
 plt.close()
-print("✅ distribuicoes.png")
+print("distribuicoes.png")
 
-print(f"\n🎉 Todos os gráficos foram gerados em {output_dir}!")
+print(f"\nTodos os gráficos foram gerados em {output_dir}!")

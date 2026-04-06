@@ -1,4 +1,4 @@
-# 📊 Estatística e Probabilidade
+# Estatística e Probabilidade
 
 Modelos de Machine Learning são, na essência, ferramentas estatísticas. Antes de treinar qualquer modelo, precisamos entender como descrever e interpretar os dados que ele vai aprender. Esta seção cobre os conceitos que vão aparecer em toda análise exploratória.
 
@@ -85,9 +85,3 @@ Uma distribuição descreve como os valores de uma variável estão espalhados. 
     Vários algoritmos assumem que os dados seguem uma distribuição normal. Quando isso não acontece — como em variáveis com muitos outliers ou distribuições assimétricas — pode ser necessário transformar os dados antes de treinar o modelo.
 
 ---
-
-## 📚 Explore a Documentação
-
-- **NumPy estatísticas:** [numpy.org/doc/stable/reference/routines.statistics](https://numpy.org/doc/stable/reference/routines.statistics.html)
-- **Seaborn (visualizações):** [seaborn.pydata.org](https://seaborn.pydata.org)
-- **Matplotlib:** [matplotlib.org/stable/gallery](https://matplotlib.org/stable/gallery/index.html)

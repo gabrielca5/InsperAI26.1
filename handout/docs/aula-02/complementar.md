@@ -38,7 +38,7 @@ Cada variável é analisada individualmente — histograma, boxplot, e uma concl
     Observe que ele não só plota os gráficos, ele **escreve o que viu** antes de decidir o que fazer. Esse hábito de documentar o raciocínio é o que separa uma análise reproduzível de um código que só o autor entende.
 
 !!! warning "Fique atento"
-    Na seção de `AveOccup`, Gabriel identifica os mesmos outliers institucionais que discutimos na Aula 01, prisões, hotéis, blocos anômalos. Veja como a conclusão dele se compara com a nossa abordagem.
+    Na seção de `AveOccup`, Gabriel identifica os mesmos outliers institucionais que discutimos na Aula 0, prisões, hotéis, blocos anômalos. Veja como a conclusão dele se compara com a nossa abordagem.
 
 ---
 

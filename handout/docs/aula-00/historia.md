@@ -1,4 +1,4 @@
-# 🕰️ História da Inteligência Artificial
+# História da Inteligência Artificial
 
 A IA não surgiu do nada — é o resultado de décadas de ideias, experimentos e contribuições de pessoas de áreas completamente diferentes. Entender essa história ajuda a perceber que estamos no meio de um processo longo, não no início de algo novo.
 
@@ -32,7 +32,7 @@ Warren S. McCulloch e Walter Pitts publicam um dos trabalhos seminais na histór
 
 Essa ideia inspira sistemas de computador que simulam funções e processos semelhantes ao cérebro, particularmente por meio de redes neurais e deep learning.
 
-### 1950 — Alan Turing 🐐
+### 1950 — Alan Turing
 
 O artigo de referência do matemático britânico Alan Turing *"Computing Machinery and Intelligence"* é publicado na Mind. O artigo é um texto fundamental em IA e lida com a questão **"As máquinas pensam?"**
 
@@ -116,5 +116,5 @@ O lançamento do **ChatGPT** pela OpenAI leva a IA generativa para o público ge
 
 A IA não é uma tecnologia nova que surgiu do nada. É o resultado de **quase 300 anos de ideias**, passando por matemáticos, engenheiros, neurocientistas, filósofos e programadores.
 
-!!! success "Para o seu curso"
+!!! success "Na Insper AI"
     As técnicas que você vai aprender nas próximas aulas — regressão linear, redes neurais, gradient descent — têm raízes em trabalhos publicados décadas atrás. Entender de onde vieram ajuda a entender por que funcionam do jeito que funcionam.
