@@ -105,6 +105,5 @@ nav:
 
   - "Aula 3 — Otimização":
       - "Visão Geral": aula-03/index.md
-      - "1. Função de Custo e Gradiente": aula-03/custo-gradiente.md
-      - "2. Gradient Descent e Convergência": aula-03/gradient-descent.md
-      - "3. Prática": aula-03/pratica.md
+      - "1. Gradient Descent": aula-03/gradient-descent.md
+      - "2. Prática": aula-03/pratica.md
