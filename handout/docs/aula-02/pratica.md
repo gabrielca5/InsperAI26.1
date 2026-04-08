@@ -3,7 +3,7 @@
 O notebook `classificadores.ipynb` é a atividade principal da aula 2.
 O handout concentra a teoria; o notebook coloca o classificador em execução.
 
-[Link do Clasroom](link.com.br)
+[Link do Clasroom](https://classroom.github.com/a/RUNehEEq)
 
 ---
 ## O que você vai fazer

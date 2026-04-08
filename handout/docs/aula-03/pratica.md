@@ -6,7 +6,7 @@ Nele, você implementa uma versão manual de regressão logística com **batch g
 O ponto principal, porém, não é “fazer outro classificador”.
 É usar esse exemplo para enxergar o mecanismo de otimização funcionando passo a passo.
 
-[Link do Clasroom](link.com.br) (sim, é o mesmo da aula 2)
+[Link do Clasroom](https://classroom.github.com/a/RUNehEEq) (sim, é o mesmo da aula 2)
 
 ---
 ## O Que Você Vai Fazer
