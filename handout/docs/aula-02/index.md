@@ -1,57 +1,40 @@
-# Aula 02 — Regressão Linear
+# Aula 2 — Classificação e Regressão Logística
 
-Nesta aula saímos da teoria e colocamos a mão no dado. O fio condutor é o **California Housing Dataset**, um conjunto real, com problemas reais, que vai nos forçar a tomar decisões antes mesmo de treinar qualquer modelo.
+Nesta aula, saímos de problemas de **previsão contínua** e entramos em problemas de **decisão entre classes**.
+Em vez de prever um valor como preço ou temperatura, agora o modelo precisa responder perguntas como:
 
-O objetivo não é só fazer o modelo funcionar. É entender **por que** cada etapa existe e o que acontece quando você a pula.
+- isso é spam ou não?
+- a transação parece fraude ou não?
+- o tumor parece benigno ou maligno?
 
----
-## Vídeos prévios
-Caso você ache que faz sentido, e tenha tempo disponível, é fortemente recomendado que você assista esse vídeo antes da aula, ele é do nosso mestre todo poderoso **Andrew Ng**, usaremos muitas coisas ensinadas por ele!
+O objetivo da aula não é só treinar um classificador com `scikit-learn`.
+É entender:
 
-> - [Stanford CS229: Machine Learning - Linear Regression and Gradient Descent](https://www.youtube.com/watch?v=4b4MUYve_U8)
-
-Caso não ache necessário ver um vídeo grande assim, temos essa outra opção do StatQuest
-
-> - [ Linear Regression, Clearly Explained!!! ](https://www.youtube.com/watch?v=7ArmBVF2dCs)
-
-Caso você ainda ache muito grande, primeiro, largue os vídeos curtos, sério, isso ta acabando com sua vida, segundo, veja esse vídeo do 3-Minute  Data Science
-
-> - [Linear Regression in 3 Minutes ](https://www.youtube.com/watch?v=3dhcmeOTZ_Q)
+- o que muda quando o target deixa de ser contínuo
+- como a **Regressão Logística** transforma um score linear em probabilidade
+- qual é o papel da **função sigmoide**
+- como a decisão final depende de threshold
+- por que avaliar um classificador é mais sutil do que olhar uma única métrica
 
 ---
-## O que vamos estudar
+## Dataset da Aula
 
-| Seção | Conteúdo |
-|---|---|
-| 📖 Teoria | Equação da reta, resíduos, MSE, notação vetorial e R² |
-| 🔍 Exploração | Carregamento, estatísticas descritivas e visualizações do dataset |
-| ⚠️ Outliers | Identificação de dados suspeitos que podem prejudicar o modelo |
-| 🤖 Treinamento | Divisão treino/teste, `LinearRegression` e avaliação com R² |
-| 🔗 Leitura Complementar | Análise completa de Gabriel Valentim (NeroAI) |
-| ✏️ Atividades | Exercícios para fixar os conceitos |
+A prática usa o **Breast Cancer Wisconsin Dataset**, disponível no `scikit-learn`.
 
----
+Cada linha representa uma amostra com 30 features numéricas extraídas de exames.
+O target é binário:
 
-## O Dataset
+- `0 = malignant`
+- `1 = benign`
 
-O **California Housing Dataset** é derivado do censo de 1990 do estado da Califórnia. Cada linha representa um **bloco censitário**, a menor unidade geográfica do censo americano, tipicamente com 600 a 3.000 habitantes.
-
-| Coluna | Descrição |
-|---|---|
-| `MedInc` | Renda mediana dos domicílios (dezenas de milhares de USD) |
-| `HouseAge` | Idade mediana das casas do bloco |
-| `AveRooms` | Média de cômodos por domicílio |
-| `AveBedrms` | Média de quartos por domicílio |
-| `Population` | População total do bloco |
-| `AveOccup` | Média de moradores por domicílio |
-| `Latitude` | Latitude do bloco |
-| `Longitude` | Longitude do bloco |
-| `MedHouseVal` | **Target** — Valor mediano das casas (centenas de milhares de USD) |
-
-!!! warning "Dados do censo de 1990"
-    O dataset tem mais de 30 anos. Valores absolutos de preço e renda estão desatualizados — mas os **padrões e relações entre variáveis** continuam sendo um excelente campo de aprendizado.
+!!! warning "Não confunda rótulo numérico com classe de interesse"
+    O valor `1` não significa automaticamente "caso mais importante".
+    Em classificação, você precisa sempre definir explicitamente qual classe está tratando como **positiva** e qual erro custa mais caro.
 
 ---
+## Referências
 
-!!! info "Referência"
-    Este material acompanha o capítulo 4 do livro **Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow** (Aurélien Géron).
+- **Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow** (Aurélien Géron) - Capítulos 3 e 4
+
+!!! Author
+    **Thomas Kassabian**

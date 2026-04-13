@@ -1,138 +1,125 @@
-# ✏️ Atividades — Aula 00
+# Atividades
 
-Exercícios para fixar os conceitos da introdução. Não há código aqui — o objetivo é garantir que os fundamentos conceituais estejam sólidos antes de avançar.
+Estas atividades foram pensadas para serem feitas **depois** do notebook do assignment da aula 01 no **GitHub Classroom**.
+Elas assumem que você já executou a prática principal e já tem, pelo menos, um modelo bruto e um modelo limpo para comparar.
+
+Tente resolver cada exercício antes de olhar a dica.
 
 ---
 
-## 1. ML vs. Programação Tradicional
+## Atividade 1 — Revisando a Inspeção Inicial
 
-Um desenvolvedor precisa construir um sistema que identifica se uma transação bancária é fraudulenta ou não. Ele tem acesso a 2 milhões de transações históricas, cada uma já classificada como fraude ou legítima.
+Volte ao output de `.describe()` gerado no notebook e responda:
 
-a) Por que essa situação é um caso claro para Machine Learning em vez de programação tradicional?  
-b) Qual seria o problema de tentar escrever regras manuais para esse sistema?  
-c) Se o comportamento dos fraudadores mudar ao longo do tempo, o que precisa acontecer com o modelo?
+1. Quais colunas mais claramente sugerem presença de outliers?
+2. O target `MedHouseVal` já dava pistas do teto artificial antes mesmo do gráfico? Onde?
+3. `AveRooms` e `AveOccup` parecem simétricas ou assimétricas? O que isso sugere sobre médias e medianas?
 
 ??? tip "Dica"
-    Regras manuais quebram quando o problema tem muitas variações possíveis ou quando o padrão muda com o tempo. Em ML, a solução é retreinar o modelo com dados novos — as regras são atualizadas automaticamente.
+    Compare `max`, `75%`, `mean` e `50%`. Valores máximos muito distantes e médias bem acima da mediana costumam ser sinais fortes de assimetria e extremos.
 
 ---
 
-## 2. Classificando tipos de aprendizado
+## Atividade 2 — Estendendo a Análise de Outliers
 
-Para cada situação abaixo, identifique o tipo de aprendizado mais adequado e justifique:
+No notebook, a prática principal focou em `MedHouseVal == 5.0` e `AveOccup > 20`.
+Agora investigue um terceiro sinal: valores extremos de `AveRooms`.
 
-a) Um e-commerce quer agrupar seus clientes em perfis de comportamento de compra, sem ter definido os grupos com antecedência.  
-b) Um hospital quer prever se um paciente vai desenvolver diabetes com base no seu histórico clínico. Ele tem 50.000 prontuários com diagnósticos confirmados.  
-c) Uma empresa quer treinar um robô para navegar num armazém desviando de obstáculos, sem programar explicitamente cada movimento.  
-d) Uma plataforma de streaming quer detectar músicas com características sonoras semelhantes para criar playlists automáticas.
+Complete o código abaixo:
+
+```python
+threshold = df["AveRooms"].quantile(___)
+
+extremos = df[df["AveRooms"] > threshold]
+print(f"Blocos com AveRooms no top 1%: {len(extremos)}")
+extremos[["AveRooms", "AveBedrms", "Population", "MedHouseVal"]].head(10)
+```
+
+Depois responda:
+
+1. Faz sentido um domicílio ter 50, 100 ou 141 cômodos?
+2. Esses casos parecem mais próximos de erro de medição, uso institucional ou outra coisa?
+3. Você incluiria esse filtro no modelo limpo da aula 01? Por quê?
 
 ??? tip "Dica"
-    A pergunta-chave é: os dados vêm com rótulos (respostas corretas)? Se sim → supervisionado. Se não, mas queremos encontrar estrutura → não supervisionado. Se o agente aprende por tentativa e erro com recompensas → reforço.
+    Substitua `___` por `0.99`. Lembre que `quantile(0.99)` retorna o valor abaixo do qual estão 99% dos dados.
 
 ---
 
-## 3. Regressão ou Classificação?
+## Atividade 3 — Sensibilidade ao Tamanho do Teste
 
-Para cada problema abaixo, identifique se é regressão ou classificação e explique o critério usado:
+Repita o treino com diferentes proporções de `test_size` e compare os resultados. Faça isso primeiro com os dados brutos e, se tiver tempo, repita com os dados limpos.
 
-a) Prever o preço de uma ação amanhã.  
-b) Identificar se um tumor é maligno ou benigno.  
-c) Estimar quantos dias um paciente ficará internado.  
-d) Determinar qual dígito (0–9) está escrito numa imagem.  
-e) Decidir se um e-mail deve ir para a caixa de entrada ou para o spam.
+```python
+for test_size in [0.1, 0.3]:
+    X_tr, X_te, y_tr, y_te = train_test_split(
+        X, y, test_size=___, random_state=42
+    )
+    m = LinearRegression().fit(X_tr, y_tr)
+    r2 = r2_score(y_te, m.predict(X_te))
+    print(f"test_size={test_size} → R² Teste = {r2:.4f} "
+          f"| Treino={len(X_tr):,} | Teste={len(X_te):,}")
+```
+
+Responda: o R² mudou muito? Por quê ele pode variar com o tamanho do conjunto de teste?
 
 ??? tip "Dica"
-    O critério é a natureza da saída: número contínuo → regressão. Categoria discreta → classificação. Cuidado com o item (d) — apesar de usar números, os dígitos são categorias, não quantidades.
+    Substitua `___` por `test_size`. Conjuntos de teste menores tendem a produzir métricas mais instáveis, porque cada amostra individual pesa mais no resultado final.
 
 ---
 
-## 4. O pipeline na prática
+## Atividade 4 — Comparando Coeficientes Bruto vs Limpo
 
-Um cientista de dados recebeu a tarefa de construir um modelo que prevê o valor de aluguel de apartamentos em São Paulo. Ordene as etapas abaixo na sequência correta e descreva brevemente o que deve acontecer em cada uma:
+Monte uma tabela comparando os coeficientes do modelo bruto com os do modelo limpo.
 
-- Avaliar o modelo com dados que ele nunca viu
-- Definir a métrica de sucesso
-- Coletar dados de aluguéis anunciados
-- Retreinar com dados mais recentes se a performance cair
-- Tratar valores ausentes e criar features relevantes
-- Escolher e treinar um modelo de regressão
-- Explorar distribuições, correlações e outliers
+Se você padronizou os nomes no notebook, pode usar algo próximo disto:
 
-??? tip "Dica"
-    A ordem correta é: definir o problema → coletar → explorar → preparar → treinar → avaliar → iterar. Você só sabe o que melhorar depois de medir.
+```python
+comparacao = pd.DataFrame({
+    "feature": X.columns,
+    "coef_bruto": model_bruto.coef_,
+    "coef_limpo": model_limpo.coef_,
+})
 
----
+comparacao["delta_abs"] = (
+    comparacao["coef_limpo"] - comparacao["coef_bruto"]
+).abs()
 
-## 5. Identificando etapas pelo sintoma
+comparacao.sort_values("delta_abs", ascending=False).head(10)
+```
 
-Para cada sintoma abaixo, identifique em qual etapa do pipeline o problema ocorreu e o que deveria ter sido feito:
+Depois responda:
 
-a) O modelo tem ótima performance no treino, mas falha completamente em produção.  
-b) Os dados de entrada misturavam reais e dólares sem conversão.  
-c) O modelo de spam dizia "não spam" para tudo e parecia ter 95% de acurácia — pois 95% dos dados eram não spam.  
-d) Seis meses após o deploy, a performance caiu muito sem que ninguém mudasse nada no código.
-
-??? tip "Dica"
-    (a) Faltou separar treino e teste. (b) Limpeza e padronização não foram feitas. (c) A métrica escolhida não era adequada para dados desbalanceados. (d) Modelos em produção precisam ser monitorados e retreinados com dados novos.
+1. Qual feature tem o **maior coeficiente positivo**? Isso faz sentido economicamente?
+2. Quais coeficientes mais mudaram depois da limpeza?
+3. `AveBedrms` tem sinal esperado ou surpreendente? Pesquise o conceito de **multicolinearidade** para interpretar esse comportamento.
 
 ---
 
-## 6. Fixando com Quiz
+## Atividade 5 — Diagnóstico com Resíduos
 
-<quiz>
-Machine Learning e Inteligência Artificial são a mesma coisa.
+No notebook, você comparou métricas agregadas. Agora olhe para os erros ponto a ponto do modelo limpo.
 
-- [ ] Verdadeiro
-> Incorreto. IA é o campo amplo. ML é uma das abordagens dentro dele — nem toda IA usa ML.
-- [x] Falso
-> Correto! IA é o campo. ML é uma subárea que usa dados para aprender padrões automaticamente.
-</quiz>
+Complete:
 
-<quiz>
-Um modelo de regressão prevê uma categoria discreta como saída.
+```python
+residuos = y_test_limpo - y_pred_test_limpo
 
-- [ ] Verdadeiro
-> Incorreto. Regressão prevê valores contínuos. Prever categorias é o papel da classificação.
-- [x] Falso
-> Correto! Regressão prevê números contínuos (preço, temperatura). Classificação prevê categorias (spam/não spam, maligno/benigno).
-</quiz>
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
-<quiz>
-Qual etapa do pipeline consome mais tempo em projetos reais?
+axes[0].hist(residuos, bins=40)
+axes[0].set_title("Distribuição dos resíduos")
 
-- [ ] Treinar o modelo
-> O treino em si costuma ser rápido — especialmente com bibliotecas como scikit-learn.
-- [ ] Avaliar o modelo
-> A avaliação é importante, mas não é onde o tempo vai embora.
-- [x] Preparar os dados
-> Correto! Limpeza, tratamento de outliers, criação de features e normalização consomem 60–80% do tempo em projetos reais.
-- [ ] Definir o problema
-> Fundamental, mas geralmente não é onde o tempo é gasto.
-</quiz>
+axes[1].scatter(y_pred_test_limpo, residuos, alpha=0.2, s=10)
+axes[1].axhline(0, color="red", linestyle="--")
+axes[1].set_title("Resíduo vs valor predito")
 
-<quiz>
-No aprendizado supervisionado, o modelo aprende a partir de dados sem rótulos.
+plt.tight_layout()
+plt.show()
+```
 
-- [ ] Verdadeiro
-> Incorreto. Sem rótulos é aprendizado não supervisionado. No supervisionado, cada exemplo tem uma resposta correta associada.
-- [x] Falso
-> Correto! No supervisionado, cada amostra vem com o rótulo correto — é exatamente esse par (entrada, saída esperada) que o modelo usa para aprender.
-</quiz>
+Depois responda:
 
-<quiz>
-Retreinar o modelo com dados novos faz parte do pipeline de ML.
-
-- [x] Verdadeiro
-> Correto! O pipeline é cíclico. Modelos em produção precisam ser monitorados e retreinados quando o comportamento dos dados muda ao longo do tempo.
-- [ ] Falso
-> Incorreto. Um modelo treinado uma única vez fica desatualizado conforme o mundo muda — retreinar é parte essencial do processo.
-</quiz>
-
-<quiz>
-Aprendizado por reforço é o tipo mais usado em problemas de previsão de preços e classificação de e-mails.
-
-- [ ] Verdadeiro
-> Incorreto. Esses são problemas de aprendizado supervisionado — os dados têm rótulos e o modelo aprende a partir deles.
-- [x] Falso
-> Correto! Aprendizado por reforço é usado quando um agente aprende por tentativa e erro em um ambiente — jogos, robótica, otimização de rotas. Previsão e classificação são supervisionados.
-</quiz>
+1. Os resíduos parecem centrados em zero?
+2. Existe padrão visual claro de subestimação ou superestimação?
+3. O gráfico sugere que a relação é bem capturada por um modelo linear simples?

@@ -1,7 +1,9 @@
 site_name: Aulas — Insper AI
 site_description: Material de apoio para as aulas de Inteligência Artificial
-site_author: Gabriel Aguiar
-site_url: https://gabrielca5.github.io/aulas-iAI-2026.1/
+site_author: InsperAI
+site_url: https://insperai-trainee.github.io/InsperAI26.1/
+repo_url: https://github.com/InsperAI-Trainee/InsperAI26.1/
+repo_name: InsperAI-Trainee/InsperAI26.1
 
 theme:
   name: material
@@ -25,8 +27,6 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.expand
     - navigation.indexes
     - navigation.instant
     - navigation.tracking
@@ -35,7 +35,9 @@ theme:
     - toc.follow
 plugins:
   - search
-  - mkdocs_quiz
+  - mkdocs_quiz:
+      custom_translations:
+        pt-BR: translations/mkdocs_quiz.pt-BR.po
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -49,37 +51,59 @@ markdown_extensions:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
-      
 
 extra_javascript:
   - js/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - js/extra.js
 
+extra_css:
+  - css/extra.css
+
+# draft_docs: |
+#   aula-02
+#   aula-03
 
 nav:
   - Início: index.md
-  - "Setup de ambiente" :
-      - Introdução: setup/setup.md
-      - "1. Git": setup/git.md
-      - "2. GitHub": setup/github.md
-      - "3. Vscode" : setup/vscode.md
-      - "4. Gerenciador de pacotes" : setup/ge_pacotes.md
-  - "Aula 1 — Fundamentos":
-      - Introdução: aula-01/introducao.md
-      - História da IA: aula-01/historia.md
-      - "1. Python e NumPy": aula-01/python_numpy.md
-      - "2. Estatística e Probabilidade": aula-01/estatistica.md
-      - "3. O Que vem por 'AI'": aula-01/aprofundamento.md
-      - "4. Atividades": aula-01/atividades.md
-
-  - "Aula 2 — Regressão Linear":
-      - "Exposição Teórica":
+  - Utilidades: utils/utilidades.md
+  - "Setup de ambiente":
+      - Introdução: aula-setup/docs/setup.md
+      - "1. Git": aula-setup/docs/git.md
+      - "2. GitHub": aula-setup/docs/github.md
+      - "3. Visual Studio Code (IDE)": aula-setup/docs/vscode.md
+      - "4. UV": aula-setup/docs/uv.md
+      - "5. Primeiro handout": aula-setup/docs/primeiro-handout.md
+      - "6. Fluxo com Git e GitHub": aula-setup/docs/fluxo-git-github.md
+  - "Aulas":
+      - "Aula 0 — Fundamentos":
+          - Visão Geral: aula-00/introducao.md
+          - História da IA: aula-00/historia.md
+          - "1. Python e NumPy": aula-00/python_numpy.md
+          - "2. Estatística e Probabilidade": aula-00/estatistica.md
+          - "3. O Que vem por 'AI'": aula-00/aprofundamento.md
+          - "4. Atividades": aula-00/atividades.md
+      - "Aula 1 — Workflow de ML e Regressão Linear":
+          - "Introdução":
+              - "Visão Geral": aula-01/index.md
+              - "Regressão Linear": aula-01/teoria.md
+          - "Prática":
+              - "1. Notebook": aula-01/pratica.md
+              - "2. Exploração dos Dados": aula-01/exploracao.md
+              - "3. Outliers e Dados Suspeitos": aula-01/outliers.md
+              - "4. Treinando o Modelo": aula-01/treinamento.md
+              - "5. Leitura Complementar": aula-01/complementar.md
+      - "Aula 2 — Classificação e Regressão Logística":
           - "Visão Geral": aula-02/index.md
-          - "Regressão Linear": aula-02/teoria.md
-      - "Estudo de Caso":
-          - "1. Exploração dos Dados": aula-02/exploracao.md
-          - "2. Outliers e Dados Suspeitos": aula-02/outliers.md
-          - "3. Treinando o Modelo": aula-02/treinamento.md
-          - "4. Leitura Complementar": aula-02/complementar.md
-          - "5. Atividades": aula-02/atividades.md
-          - "6. Resumo" : aula-02/resumo.md
+          - "1. O Problema de Classificação": aula-02/classificacao.md
+          - "2. Regressão Logística e Sigmoide": aula-02/logistica.md
+          - "3. Métricas e Trade-offs": aula-02/metricas.md
+          - "4. Prática": aula-02/pratica.md
+      - "Aula 3 — Otimização":
+          - "Visão Geral": aula-03/index.md
+          - "1. Gradient Descent": aula-03/gradient-descent.md
+          - "2. Prática": aula-03/pratica.md
+      - "Aula 4 — Redes Neurais":
+          - "Visão Geral": aula-04/index.md
+          - "1. Fundamentos": aula-04/introducao.md
+          - "2. Estrutura": aula-04/estrutura_redes.md
