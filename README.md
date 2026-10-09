@@ -56,15 +56,21 @@ Primeiro modelo supervisionado — do zero à avaliação.
 ---
 
 ## Como rodar localmente
-```bash
-# Instalar dependências
-pip install mkdocs-material mkdocs-quiz
 
-# Subir o servidor local
-mkdocs serve
+```bash
+cd website
+npm install
+npm run start
 ```
 
-Acesse `http://127.0.0.1:8000` no navegador.
+Acesse `http://localhost:3000/InsperAI26.1/` no navegador.
+
+Para gerar o build de produção:
+
+```bash
+npm run build
+npm run serve
+```
 
 ---
 
